@@ -156,3 +156,21 @@ https://www.tossbank.com/articles/23697 : 달러 가치에 대한 설명
 
 - 데이터 불러오기 : BTCUSDT_1d
 > [03_load_data.ipynb](../03_load_data.ipynb)
+
+성공!
+
+### 3. 시각화
+[04_visual_prepare.ipynb](../04_visual_prepare.ipynb)
+
+1. 데이터 불러오기 : BTCUSDT_1d, Gold, Dollar, S&P 500
+2. 데이터 합치기
+
+[05_visual.ipynb](../05_visual.ipynb)  
+: ㅎ 여기서 새로 scaling해서 다시 파일 만듦
+
+[06_visualize.ipynb](../06_visualize.ipynb)  
+
+![alt text](image-14.png)  
+: 그냥 보면 잘 모르겠다
+
+#### 
