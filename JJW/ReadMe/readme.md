@@ -138,4 +138,21 @@ https://www.tossbank.com/articles/23697 : 달러 가치에 대한 설명
 
 - 저장 > DATA
 
-### 2. 데이터 시각화 : 시계열
+### 2. 데이터 시각화 : 시계열 -> 우선 db 연동해 데이터 받기
+> 접근 완료! [02_connect_sql.ipynb](../02_connect_sql.ipynb)
+
+- 데이터베이스 연동 : MySQL
+- 방법 : pymysql, sqlalchemy
+- pymysql : MySQL DB와 연동하기 위한 라이브러리
+- sqlalchemy : ORM(Object Relational Mapping)을 지원하는 라이브러리
+
+![alt text](image-10.png)  
+![alt text](image-11.png)  
+: DB에 데이터 올리기. 신기하다...
+![alt text](image-12.png)  
+: 디게 오래 걸린다
+![alt text](image-13.png)  
+: 끝!
+
+- 데이터 불러오기 : BTCUSDT_1d
+> [03_load_data.ipynb](../03_load_data.ipynb)
