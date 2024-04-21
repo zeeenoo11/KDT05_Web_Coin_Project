@@ -33,7 +33,6 @@
 
 ### 1. forecasting
 
-
 - doc를 읽고 forecasting을 해보자
 - prophet, ARIMA, LSTM, GRU, Transformer
 - prophet : Facebook에서 개발한 시계열 예측 라이브러리
@@ -78,10 +77,14 @@ For long forecast horizon forecasts, **NHiTS** is an excellent choice as it uses
 
 [07_forecasting_test.ipynb](../07_forecasting_test.ipynb)
 
-#### 할 일1 - 예제 읽기
+#### 겨우겨우 제작 완료
+
+![alt text](image.png)  
+: 왜 크게 차이나지...
+
+#### 발표용 그래프
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)  
 : 
-
-
-#### 할 일2 - 내 데이터를 적용
-
-#### 결과 확인
