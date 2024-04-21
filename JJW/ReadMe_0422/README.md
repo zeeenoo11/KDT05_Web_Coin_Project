@@ -79,12 +79,35 @@ For long forecast horizon forecasts, **NHiTS** is an excellent choice as it uses
 
 #### 겨우겨우 제작 완료
 
-![alt text](image.png)  
 : 왜 크게 차이나지...
 
 #### 발표용 그래프
 
-![alt text](image-1.png)
+![alt text](image-7.png)
 
 ![alt text](image-2.png)  
-: 
+
+![alt text](image-8.png)
+: 수정한 그래프 : 날짜 수정
+
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+> Encoder 변수 중요도에서 월이 가장 중요하고, 금값이 다음이다.
+
+### 4. 미래 데이터 예측
+
+해당 페이지임 (07_)
+
+#### 데이터를 변환시켜주는 게 어려웠다
+- 날짜를 바꿔 입력해야함
+
+![alt text](image-9.png)  
+: 3-31이 마지막 데이터  
+
