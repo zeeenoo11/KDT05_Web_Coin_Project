@@ -65,12 +65,3 @@ def predict():
     # predict_val = predictor.result_coin()
     # # return redirect(request.url_root)
     # return render_template('test_alpha.html', result=result, predict = predict, predict_val = predict_val)
-    
-    
-# --------------------------------------------------------------------------------
-# 진우 블루프린트 코드
-# bp = jw_bp, url_prefix = '/noo'
-# --------------------------------------------------------------------------------
-jw_bp = Blueprint('jw_views', __name__, url_prefix='/noo')
-
-@jw_bp.route('/')

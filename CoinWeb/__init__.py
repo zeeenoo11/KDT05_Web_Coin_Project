@@ -12,18 +12,19 @@ def create_app():
     app = Flask(__name__)
 
     # 설정 내용 로딩
-    app.config.from_pyfile('config.py')
-    
+    app.config.from_pyfile("config.py")
+
     # ORM 즉, DB 초기화
     db.init_app(app)
     migrate.init_app(app, db)
-    
+
     # 테이블 클래스
-    from . import models
-    
+    from . import model
+
     # 블루프린트
     from .views import main_views
-    app.register_blueprint(main_views.bp)
-    
+
+    app.register_blueprint(main_views.ms_bp)
+
     # Flask Server 인스턴스 반환
     return app
