@@ -134,11 +134,6 @@ For long forecast horizon forecasts, **NHiTS** is an excellent choice as it uses
 ### 구성
 : 일단 NooWeb을 복사해서 옴
 
-1. 
-
-
-
-
 ## 다음에 할 일
 
 1. html 프레임 짜기
