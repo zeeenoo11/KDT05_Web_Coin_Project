@@ -1,0 +1,101 @@
+{% extends 'basekms.html' %}
+{% block content %}
+    <header>
+        <h1>외부 가격 {{ target }} 예측</h1>
+        <form action="predict" method="post">
+          <select name='symbol'>
+            <option value="nonselectable" selected disabled>--예측대상을 선택해주세요--</option>
+            <optgroup label="가격 예측 대상">
+              <option value="vix">VIX</option>
+              <option value="coin">코인베이스</option>
+              <option value="oil">WTI 원유 가격</option>
+            </optgroup>
+          </select>
+          <input type="submit" value="예측하기">
+      </form>
+    </header>
+    <div style="position: relative; height:60vh; width:80vw">
+    <canvas id="myChart"></canvas>
+  </div>
+  <div>
+    {{ predict_val }}
+  </div>
+<script>
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+        {% for x in bitresult %}
+        '{{ x.timestamp.date() }}',
+        {% endfor %}
+        ],
+        datasets: [{
+          label: '{{ target }}',
+          data: [
+          {% for x in result %}
+          {% if x.DATE.date() >= bitresult[0].timestamp.date() %}
+          {x : '{{ x.DATE.date() }}', y : {{ x.DCOILWTICO }} },
+          {% endif %}
+          {% endfor %}
+          ],
+          borderWidth: 1,
+          yAxisID: 'y',
+        },
+        {
+            label: '{{ target }} 예측 데이터',
+            data: [
+            {% for ax in predict.iterrows() %}
+            
+            {x : '{{ ax[1].timestamp.date() }}', y : {{ ax[1][1:].sum() / ax[1][1:].__len__()}} },
+
+            {% endfor %}
+            ],
+            borderWidth: 1,
+            yAxisID: 'y',
+        },
+        {
+            label: '비트코인 가격',
+            data: [
+            {% for ax in bitresult %}
+            {x : '{{ ax.timestamp.date() }}', y : {{ ax.close }} },
+            {% endfor %}
+            ],
+            borderWidth: 1,
+            yAxisID: 'y1',
+        },
+        ]
+      },
+      options: {
+        elements: {
+          point:{
+              radius: 1,
+          }
+        },
+        scales: {
+          y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+      },
+          y1: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+
+        // grid line settings
+        grid: {
+          drawOnChartArea: false, // only want the grid lines for one axis to show up
+        },
+      },
+          
+          
+        }
+      }
+    });
+</script>
+{% endblock %}
+
+{% block footer %}
+<p>{{ copyright }}</p>
+{% endblock %}

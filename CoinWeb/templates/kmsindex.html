@@ -1,0 +1,69 @@
+{% extends 'basekms.html' %}
+{% block content %}
+    <header>
+        <h1>비트코인 기반 외부 가격 예측</h1>
+        <form action="predict" method="post">
+          <select name='symbol'>
+            <option value="nonselectable" selected disabled>--예측대상을 선택해주세요--</option>
+            <optgroup label="가격 예측 대상">
+              <option value="vix">VIX</option>
+              <option value="coin">코인베이스</option>
+              <option value="oil">WTI 원유 가격</option>
+            </optgroup>
+          </select>
+          <input type="submit" value="예측하기">
+      </form>
+    </header>
+    <div style="position: relative; height:60vh; width:80vw">
+    <canvas id="myChart"></canvas>
+  </div>
+<script>
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [
+        {% for x in result %}
+        '{{ x.timestamp.date() }}',
+        {% endfor %}
+        ],
+        datasets: [{
+          label: 'USD',
+          data: [
+          {% for x in result %}
+          {{ x.close }},
+          {% endfor %}
+          ],
+          borderWidth: 1
+        },
+        {
+            label: 'USD',
+            data: [
+            {% for ax in predict %}
+            {x : '{{ ax.timestamp.date() }}', y : {{ ax.close }} },
+            {% endfor %}
+            ],
+            borderWidth: 1
+        },
+        ]
+      },
+      options: {
+        elements: {
+          point:{
+              radius: 0.5,
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+          
+        }
+      }
+    });
+</script>
+{% endblock %}
+
+{% block footer %}
+<p>{{ copyright }}</p>
+{% endblock %}
