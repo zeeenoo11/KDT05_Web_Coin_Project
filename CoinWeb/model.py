@@ -62,3 +62,13 @@ class HistMstr(Base):
     volume = Column(BigInteger, nullable=True)
     dividends = Column(Float, nullable=True)
     stock_splits = Column('stock splits',Float, nullable=True)
+
+class GOLDDXYSNP(Base):
+    __tablename__ = 'GOLDDXYSNP'
+
+    Date = Column(DateTime, primary_key=True)
+    Gold = Column(Float, nullable=True)
+    Dollar = Column(Float, nullable=True)
+    SnP = Column(Float, nullable=True)
+    
+    

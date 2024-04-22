@@ -5,16 +5,16 @@ bp = Blueprint('main_views', __name__, url_prefix='/')
 
 @bp.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
-#문섭님에게 접근 : /kms
-@bp.route('/kms')
-def kms():
-    return render_template('kms.html')
+# #문섭님에게 접근 : /kms
+# @bp.route('/kms')
+# def kms():
+#     return render_template('kms.html')
 
-@bp.route('/noo')
-def noo():
-    return render_template('jw_home.html')
+# @bp.route('/noo')
+# def noo():
+#     return render_template('jw_home.html')
 
 
 
