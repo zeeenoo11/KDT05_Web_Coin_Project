@@ -12,6 +12,10 @@ def home():
 def kms():
     return render_template('kms.html')
 
+@bp.route('/noo')
+def noo():
+    return render_template('jw_home.html')
+
 
 
 
