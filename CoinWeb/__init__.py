@@ -24,7 +24,7 @@ def create_app():
     # 블루프린트
     from .views import main_views
 
-    app.register_blueprint(main_views.ms_bp)
+    app.register_blueprint(main_views.bp)
 
     # Flask Server 인스턴스 반환
     return app

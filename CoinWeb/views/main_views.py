@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from CoinWeb import db
 
-bp = Blueprint('main_views', __name__, url_prefix='/kms')
+bp = Blueprint('main_views', __name__, url_prefix='/')
 
 @bp.route('/')
 def home():
