@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="predictionChart"></canvas>
+
+    <script>
+        // Get the predicted and actual values from your backend
+        var predictedValues = {{ predict }};
+        var actualValues = {{ actual }};
+        var labels = {{ labels }};
+
+        // Create a new chart instance
+        var ctx = document.getElementById('predictionChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Label 1', 'Label 2', 'Label 3'], // Replace with your actual labels
+                datasets: [
+                    {
+                        label: 'Predicted Values',
+                        data: predictedValues,
+                        borderColor: 'blue',
+                        fill: false
+                    },
+                    {
+                        label: 'Actual Values',
+                        data: actualValues,
+                        borderColor: 'red',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'X Axis'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Y Axis'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

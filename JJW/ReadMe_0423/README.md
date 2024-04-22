@@ -2,7 +2,7 @@
 : 3시 발표
 
 ## 할 일
-[] html - 메인 페이지 (난중 우상)  
+[ㅇ] html - 메인 페이지 (난중 우상)  
 [] 내 웹페이지 - 데이터 송수신 (난상 우상)  
 [] PPT (난중하 우상)  
 
@@ -18,3 +18,14 @@
 ## 1. html - 메인 페이지
 : flask, sqlalchemy를 이용 / 지난 프로젝트에서 가져오기
 
+## 2. 내 웹페이지 - 데이터 송수신
+
+- 문법 : form action='/input' method='post'
+- input엔 일단 date로
+
+## 3. noo_pred.py
+: 완성, 데이터 처리 부분
+- input : date(아직은 그대로)
+- output : pred_list
+
+## 4. 

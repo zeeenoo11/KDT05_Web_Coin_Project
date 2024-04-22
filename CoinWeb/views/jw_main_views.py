@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from CoinWeb import db
+from CoinWeb import noo_pred
+import pandas as pd
 
 bp = Blueprint('main_views', __name__, url_prefix='/noo')
 
@@ -7,12 +9,11 @@ bp = Blueprint('main_views', __name__, url_prefix='/noo')
 def home():
     return render_template('noo/jw_home.html')
 
-@bp.route('/input')
+@bp.route('/input', methods=['POST'])
 def input():
-    return render_template('jw_input.html')
-
-@bp.route('/result', methods=['POST'])
-def result():
-    forms = request.form
-    print(forms)
-    return render_template('jw_result.html', forms=forms)
+    # forms = request.form
+    forms = pd.read_csv("../DATA/data_with_btc_scaled.csv")
+    predict = noo_pred.predict(forms)
+    actual = noo_pred.actual(forms)
+    date = noo_pred.datetimes(forms)
+    return render_template('noo/predict.html', input = forms, predict = predict, actual = actual, labels = date)

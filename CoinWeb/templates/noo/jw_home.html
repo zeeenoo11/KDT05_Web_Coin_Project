@@ -34,16 +34,9 @@
         padding: 10px;
         margin: 5px;
       }
-      button {
+      submit {
         padding: 10px;
-        margin: 10px;
-        background-color: #004aad;
-        color: white;
-        border: none;
-        border-radius: 5%;
-        cursor: pointer;
-        width: 100px;
-        height: 50px;
+        margin: 5px;
       }
       body {
         background-color: #f0f0f0;
@@ -53,14 +46,13 @@
   <body>
     <header>
       <h1>비트코인 예측하기!</h1>
-      <h2>학습 데이터 : 전력거래 계통한계가격(SMP) 2001/04 ~ 2024/03</h2>
     </header>
 
     <main style="height: 500px">
       <br /><br /><br />
       <form action="/input" method="post">
         <fieldset>
-          <br /><br />
+          <!-- <br /><br />
           <div id="left" style="float: left; width: 50%; text-align: center">
             <label for="start_date"
               >시작일 입력: <br /><br />(2023-04 이전 데이터만 가능)</label
@@ -71,8 +63,8 @@
               name="datetime_input"
               required
             /><br /><br />
-          </div>
-
+          </div> -->
+<!-- 
           <div id="right" style="float: right; width: 50%; text-align: center">
             <label for="pred_length">학습 개월 수:</label
             ><br /><br /><br /><br />
@@ -83,7 +75,7 @@
               required
             /><br /><br />
           </div>
-          <br /><br /><br /><br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br /><br /> -->
           <div id="submit" style="width: 100%; text-align: center">
             <input type="submit" value="Submit" />
           </div>
