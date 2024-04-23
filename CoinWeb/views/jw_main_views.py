@@ -12,7 +12,7 @@ def home():
 @bp.route('/input', methods=['POST'])
 def input():
     # forms = request.form
-    forms = pd.read_csv("../DATA/data_with_btc_scaled.csv")
+    forms = noo_pred.make_data()
     predict = noo_pred.predict(forms)
     actual = noo_pred.actual(forms)
     date = noo_pred.datetimes(forms)

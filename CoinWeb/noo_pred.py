@@ -30,13 +30,15 @@ with engine.begin() as conn:
 data = pd.read_csv("../DATA/data_with_btc_scaled.csv")
 
 
-def make_data(data):
+def make_data():
+    data = pd.read_csv("../DATA/data_with_btc_scaled.csv")
     data["date"] = pd.to_datetime(data["date"], format="%Y-%m-%d")
     data["time_idx"] = (data["date"].dt.year * 12 + data["date"].dt.month) * 30 + data["date"].dt.day
     data["time_idx"] -= data["time_idx"].min()
     data["time_idx"] = data["time_idx"].astype(int)
     data["month"] = data.date.dt.month.astype(str).astype("category")
     data["group"] = 0
+    return data
 
 # ----------------- Data Preparation -----------------
 
@@ -54,7 +56,7 @@ def actual(data):
 # ----------------- DataSet Preparation -----------------
 max_encoder_length = 300
 max_prediction_length = 30
-training_cutoff = data["time_idx"].max() - max_prediction_length
+# training_cutoff = data["time_idx"].max() - max_prediction_length
 
 
 def predict(data, max_encoder_length, max_prediction_length):
@@ -117,6 +119,6 @@ def predict(data, max_encoder_length, max_prediction_length):
 
 
 if __name__ == "__main__":
-    print(datetimes(data))
-    print(actual(data))
-    print(predict(data, max_encoder_length, max_prediction_length))
+    print(datetimes(make_data(data)))
+    print(actual(make_data(data)))
+    print(predict(make_data(data), max_encoder_length, max_prediction_length))
